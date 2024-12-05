@@ -1,1 +1,2 @@
-VGVzdGluZyByZXBvc2l0b3J5IGFjY2Vzcw==
+# Test File
+This is a test file to verify repository access.
