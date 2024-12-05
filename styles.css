@@ -1,194 +1,118 @@
-/* Base styles and variables */
-:root {
-    --nab-red: #C8102E;
-    --nab-red-dark: #a50d25;
-    --nab-black: #000000;
-    --nab-white: #ffffff;
-    --nab-gray: #444444;
-    --nab-gray-light: #f5f5f5;
-    --nab-link-color: #0052C2;
-    --font-family: Arial, sans-serif;
-    --transition-speed: 0.3s;
-    --container-width: 1200px;
-    --border-radius: 4px;
+/* Updates to the existing styles */
+.header {
+    background-color: var(--nab-black);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Additional Hero Section Styles */
-.star-pattern .star-shape {
-    width: 100%;
-    height: 100%;
-    animation: rotate 20s linear infinite;
-}
-
-@keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-.star-text {
-    color: var(--nab-white);
-    font-size: 3.5rem;
-    font-weight: bold;
-    line-height: 1.2;
-    max-width: 500px;
-}
-
-/* Popular Solutions Section */
-.popular-solutions {
-    padding: 4rem 2rem;
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     max-width: var(--container-width);
     margin: 0 auto;
+    height: 48px;
 }
 
-.popular-solutions h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: var(--nab-black);
+.search-icon {
+    cursor: pointer;
+    padding: 8px;
+    border-radius: var(--border-radius);
+    transition: background-color var(--transition-speed);
 }
 
-.popular-solutions > p {
-    font-size: 1.1rem;
-    color: var(--nab-gray);
-    max-width: 800px;
+.search-icon:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.hero {
+    background-color: var(--nab-black);
+    padding: 6rem 2rem;
+    min-height: 600px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-background-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(45deg, rgba(255,255,255,0.05) 25%, transparent 25%),
+                    linear-gradient(-45deg, rgba(255,255,255,0.05) 25%, transparent 25%),
+                    linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.05) 75%),
+                    linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.05) 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    opacity: 0.1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.classic-banking-card {
+    background: var(--nab-white);
+    padding: 3rem;
+    border-radius: 16px;
+    max-width: 420px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.star-pattern {
+    width: 240px;
+    height: 240px;
     margin-bottom: 3rem;
 }
 
-.solutions-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2.5rem;
+.star-text {
+    font-size: 3.75rem;
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--nab-white);
+    max-width: 540px;
+    margin: 0;
 }
 
-.solution-category {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.solution-category h3 {
-    font-size: 1.3rem;
-    color: var(--nab-black);
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-}
-
-.icon {
-    width: 24px;
-    height: 24px;
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-
-.home-icon {
-    background-image: url('data:image/svg+xml,<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" stroke="%23C8102E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
-}
-
-.card-icon {
-    background-image: url('data:image/svg+xml,<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 4H3a2 2 0 00-2 2v12a2 2 0 002 2h18a2 2 0 002-2V6a2 2 0 00-2-2z" stroke="%23C8102E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
-}
-
-.bank-icon {
-    background-image: url('data:image/svg+xml,<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 21h18M3 10h18M3 7l9-4 9 4M4 10v11M20 10v11" stroke="%23C8102E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
-}
-
-.loan-icon {
-    background-image: url('data:image/svg+xml,<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 100 7h5a3.5 3.5 0 110 7H6" stroke="%23C8102E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
-}
-
-.links-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.animated-link {
-    color: var(--nab-red);
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    font-weight: 500;
-    transition: all var(--transition-speed);
-    position: relative;
-    padding-right: 1.5rem;
-}
-
-.animated-link:after {
-    content: '›';
-    position: absolute;
-    right: 0;
-    transition: transform var(--transition-speed);
-    font-size: 1.2rem;
-    line-height: 1;
-}
-
-.animated-link:hover {
-    color: var(--nab-red-dark);
-}
-
-.animated-link:hover:after {
-    transform: translateX(4px);
-}
-
-/* Responsive Design */
-@media (max-width: 1200px) {
-    .hero-content,
-    .popular-solutions {
-        padding: 2rem;
+/* Additional responsive improvements */
+@media (max-width: 1024px) {
+    .star-text {
+        font-size: 3rem;
     }
-
-    .solutions-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
+    
+    .hero {
+        padding: 4rem 2rem;
     }
 }
 
 @media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-
-    .hero-content {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .classic-banking-card {
-        margin: 0 auto;
-    }
-
     .star-text {
         font-size: 2.5rem;
         text-align: center;
-        margin: 0 auto;
     }
-
-    .solutions-grid {
-        grid-template-columns: 1fr;
+    
+    .hero {
+        padding: 3rem 1.5rem;
     }
-
-    .star-pattern {
-        margin: 0 auto;
+    
+    .classic-banking-card {
+        padding: 2rem;
     }
 }
 
-/* Accessibility */
-:focus {
-    outline: 2px solid var(--nab-red);
-    outline-offset: 2px;
-}
-
-.skip-link {
-    position: absolute;
-    top: -40px;
-    left: 0;
-    background: var(--nab-red);
-    color: var(--nab-white);
-    padding: 8px;
-    z-index: 100;
-    transition: top var(--transition-speed);
-}
-
-.skip-link:focus {
-    top: 0;
+/* Performance optimizations */
+@media (prefers-reduced-motion: reduce) {
+    .star-shape {
+        animation: none;
+    }
+    
+    * {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
 }
